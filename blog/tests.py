@@ -26,7 +26,7 @@ class TestView(TestCase) :
         )
         self.post_002 = Post.objects.create(
             title='두 번째 포스트입니다.',
-            content='후후후후후햐햐햐햐햐',
+            content='후후후후후햐햐햐햐햐ㅇ아아아아아아아아아아',
             category=self.category_music,
             author=self.user_obama
         )
