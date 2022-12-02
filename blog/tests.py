@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import Post, Category
 
 class TestView(TestCase) :
-    def setUp(self) :
+    def setUp(self):
         self.client = Client()
         self.user_trump = User.objects.create_user(
             username='trump', password='somepassword'
@@ -36,7 +36,7 @@ class TestView(TestCase) :
             author=self.user_obama
         )
 
-    def category_card_test(self, soup) :
+    def category_card_test(self, soup):
         categories_card = soup.find('div', id='categories-card')
         self.assertIn('Categories', categories_card.text)
         self.assertIn(f'{self.category_programming.name} ({self.category_programming.post_set.count()})', categories_card.text)
@@ -99,26 +99,25 @@ class TestView(TestCase) :
 
 
     def test_post_detail(self):
-        post_001 = Post.objects.create(
-            title='첫 번째 포스트입니다.',
-            content='TDD... 맘에 안 드는 단어야',
-            author=self.user_trump
-        )
-        self.assertEqual(post_001.get_absolute_url(), '/blog/1/')
+        self.assertEqual(self.post_001.get_absolute_url(), '/blog/1/')
 
-        response = self.client.get(post_001.get_absolute_url())
+        response = self.client.get(self.post_001.get_absolute_url())
         self.assertEqual(response.status_code, 200)
         soup = BeautifulSoup(response.content, 'html.parser')
 
         self.navbar_test(soup)
 
-        self.assertIn(post_001.title, soup.title.text)
+        self.category_card_test(soup)
+
+        self.assertIn(self.post_001.title, soup.title.text)
 
         main_area = soup.find('div', id='main-area')
         post_area = main_area.find('div', id='post-area')
-        self.assertIn(post_001.title, post_area.text)
+        self.assertIn(self.post_001.title, post_area.text)
+        self.assertIn(self.category_programming.name, post_area.text)
+
         self.assertIn(self.user_trump.username.upper(), post_area.text)
-        self.assertIn(post_001.content, post_area.text)
+        self.assertIn(self.post_001.content, post_area.text)
 
 
 
