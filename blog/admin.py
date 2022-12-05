@@ -1,7 +1,8 @@
 from django.contrib import admin
 from .models import Post, Category, Tag
+from markdownx.admin import MarkdownxModelAdmin
 
-admin.site.register(Post)
+admin.site.register(Post, MarkdownxModelAdmin)
 
 # 슬러그 생성을 위한 클래스 추가
 class CategoryAdmin(admin.ModelAdmin):
