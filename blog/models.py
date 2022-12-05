@@ -17,8 +17,8 @@ class Tag(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
-    slug = models.SlugField(max_length=50, unique=True, allow_unicode=True)
     # slug: URL을 생성하기 위해 문자를 조합하는 방식
+    slug = models.SlugField(max_length=50, unique=True, allow_unicode=True)
 
     def __str__(self):
         return self.name
