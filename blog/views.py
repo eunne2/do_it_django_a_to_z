@@ -13,6 +13,7 @@ class PostList(ListView):
     ordering = '-pk'
     # CBV PostList 클래스에서 template_name을 직접 지정하는 방법
     # template_name = 'blog/index.html'
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super(PostList, self).get_context_data()
@@ -177,7 +178,7 @@ def delete_comment(request, pk):
         return redirect(post.get_absolute_url())
     else:
         raise PermissionDenied
-    
+
 # FBV 방식
 # def index(request):
 #     posts = Post.objects.all().order_by('-pk')
