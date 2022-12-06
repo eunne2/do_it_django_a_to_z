@@ -95,7 +95,7 @@
                         {% for comment in post.comment_set.iterator %}
                             <div class="d-flex w-100" id="comment-{{ comment.pk }}">
                                 <div class="flex-shrink-0 mr-3">
-                                    <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." />
+                                    <img class="rounded-circle" src="{{ comment.get_avatar_url }}" alt="{{ comment.author }}" width="60px" />
                                 </div>
 
                                 <div class="flex-grow-1 ms-3">
