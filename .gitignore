@@ -133,3 +133,7 @@ dmypy.json
 .idea/
 migrations/
 _media
+
+# 서비스 배포용 파일
+.env.prod
+.env.prod.db
