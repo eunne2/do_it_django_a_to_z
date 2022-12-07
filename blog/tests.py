@@ -282,7 +282,18 @@ class TestView(TestCase) :
         self.assertIn('한글 태그', main_area.text)
         self.assertIn('some tag', main_area.text)
         self.assertNotIn('python', main_area.text)
-        
+
+    # def test_delete_post(self):
+    #     post_by_trump = Post.objects.create(
+    #         post=self.post_001,
+    #         author=self.user_trump,
+    #         content='트럼프의 게시글입니다.'
+    #     )
+    #
+    #     self.assertEqual(Post.objects.count(), 3)
+    #     self.assertEqual(self.post_001.)
+
+
     def test_comment_form(self):
         self.assertEqual(Comment.objects.count(), 1)
         self.assertEqual(self.post_001.comment_set.count(), 1)
