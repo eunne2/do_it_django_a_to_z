@@ -27,7 +27,7 @@
                         <img class="rounded-circle" width="25px" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="">
                     {% else %}
                     <!-- 나중에 수정^^ 꼭^^..! 이미지 안 뜸ㅋㅋㅋ -->
-                        <img class="rounded-circle" src="{% static 'single_pages/images/profile.png' %}" alt="{{ comment.author }}" width="25px">
+                        <img class="rounded-circle" src="{% static 'blog/images/profile.png' %}" alt="{{ comment.author }}" width="25px">
                     {% endif %}
                     &nbsp;
                     {{ user.username }}
@@ -61,7 +61,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <a role="button" href="{% provider_login_url 'google' %}" class="btn btn-outline-dark btn-block btn-sm">
-                            <i class="fa-brands fa-google" style="padding-left: 6px;"></i>&nbsp;&nbsp; Log In with Google</a>
+                            <i class="fa-brands fa-google"></i>&nbsp;&nbsp; Log In with Google</a>
                         <a href="/accounts/login/" role="button" class="btn btn-outline-dark btn-block btn-sm">
                             <i class="fa-regular fa-envelope"></i>&nbsp;&nbsp; Log In with Username</a>
                     </div>
