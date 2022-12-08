@@ -1,5 +1,5 @@
 {% load socialaccount %}
-
+{% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
@@ -26,7 +26,8 @@
                     {% if user.socialaccount_set.all.0.get_avatar_url %}
                         <img class="rounded-circle" width="25px" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="">
                     {% else %}
-                        <img class="rounded-circle" src="/static/profile.png/" width="25px">
+                    <!-- 나중에 수정^^ 꼭^^..! 이미지 안 뜸ㅋㅋㅋ -->
+                        <img class="rounded-circle" src="{% static 'single_pages/images/profile.png' %}" alt="{{ comment.author }}" width="25px">
                     {% endif %}
                     &nbsp;
                     {{ user.username }}
